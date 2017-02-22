@@ -9,7 +9,7 @@ find_package(PythonInterp 2.7 REQUIRED)
 find_package(PythonQt REQUIRED)
 find_package(CTKPythonConsole REQUIRED)
 find_package(OpenGL REQUIRED)
-find_package(VTK REQUIRED)
+find_package(VTK 6.3 REQUIRED)
 find_package(QtPropertyBrowser REQUIRED)
 
 include(${VTK_USE_FILE})
@@ -86,8 +86,14 @@ set(srcs
 
 
 set(VTK_LIBRARIES
-  QVTK
-  vtkPythonCore
+  vtkWrappingPythonCore
+  vtkGUISupportQt
+  vtkInteractionWidgets
+  vtkRenderingFreeTypeOpenGL
+  vtkRenderingVolumeOpenGL
+  vtkIOXML
+  vtkIOImage
+  vtkIOGeometry
   )
 
 set(deps

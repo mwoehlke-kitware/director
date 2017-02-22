@@ -40,7 +40,7 @@ set(GLSL_SRCS
 # -----------------------------------------------------------------------------
 set(EXTRA_SRCS)
 
-if(NOT EXISTS "${VTK_ENCODESTRING_EXE}")
+if(NOT TARGET vtkEncodeString)
   message(SEND_ERROR "The required vtkEncodeString executable was not found.\nThis may indicate an error in your VTK install or configuration.")
 endif()
 
@@ -50,7 +50,7 @@ foreach(file ${GLSL_SRCS})
   add_custom_command(
     OUTPUT ${res}
     DEPENDS ${src}
-    COMMAND ${VTK_ENCODESTRING_EXE}
+    COMMAND vtkEncodeString
     ARGS ${res} ${src} ${file}
     )
   set(EXTRA_SRCS ${EXTRA_SRCS} ${res})
@@ -60,9 +60,15 @@ endforeach(file)
 #####
 
 set(VTK_LIBRARIES
-  vtkFiltering
-  vtkIO
-  vtkWidgets
+  vtkInteractionWidgets
+  vtkInteractionStyle
+  vtkRenderingFreeTypeOpenGL
+  vtkRenderingVolumeOpenGL
+  vtkRenderingOpenGL
+  vtkRenderingCore
+  vtkFiltersExtraction
+  vtkFiltersCore
+  vtkCommonCore
   )
 
 

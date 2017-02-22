@@ -325,7 +325,7 @@ vtkSmartPointer<vtkTexture> getTextureForMesh(vtkSmartPointer<vtkPolyData> polyD
   }
 
   vtkSmartPointer<vtkTexture> texture = vtkSmartPointer<vtkTexture>::New();
-  texture->SetInput(image);
+  SetInputData(texture, image);
   texture->EdgeClampOn();
   texture->RepeatOn();
   TextureMap[textureFileName] = texture;
