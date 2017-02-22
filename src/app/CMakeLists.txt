@@ -111,7 +111,7 @@ if (USE_DRAKE)
   find_package(Drake REQUIRED)
   find_package(Eigen REQUIRED)
 
-  include_directories(
+  include_directories(SYSTEM
     ${EIGEN_INCLUDE_DIRS}
     ${DRAKE_INCLUDE_DIRS}
   )
