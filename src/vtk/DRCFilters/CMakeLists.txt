@@ -16,8 +16,8 @@ set(sources
 
   vtkInteractorStyleTerrain2.cxx
 
-  vtkDepthImageProcessingPass.cxx
-  vtkEDLShading.cxx
+  #vtkDepthImageProcessingPass.cxx
+  #vtkEDLShading.cxx
   )
 
 
@@ -62,9 +62,9 @@ endforeach(file)
 set(VTK_LIBRARIES
   vtkInteractionWidgets
   vtkInteractionStyle
-  vtkRenderingFreeTypeOpenGL
-  vtkRenderingVolumeOpenGL
-  vtkRenderingOpenGL
+  vtkRenderingVolumeOpenGL2
+  vtkRenderingOpenGL2
+  vtkRenderingFreeType
   vtkRenderingCore
   vtkFiltersExtraction
   vtkFiltersCore
